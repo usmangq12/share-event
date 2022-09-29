@@ -8,7 +8,7 @@ import {
 
 export const Card = () => {
   return (
-    <div className="max-w-[440px] rounded-[35.1522px] font-[Helvetica] overflow-hidden mb-5 lg:mb-0">
+    <div className="max-w-[440px] rounded-[35.1522px] font-[Helvetica] overflow-hidden mb-5 lg:mb-0 drop-shadow-[0px_0px_46.869px_rgba(0,0,0,0.05)]">
       <img src={EventCard} alt="" className="h-[375px] w-full" />
       <div className="py-9 px-5 bg-white">
         <h1 className="text-[#240D57] text-5xl">Movie Night</h1>

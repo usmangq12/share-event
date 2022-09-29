@@ -10,17 +10,20 @@ export const EventForm = () => {
   };
 
   return (
-    <div className="mt-10 sm:mt-0">
-      <div className=" md:grid md:grid-cols-3 md:gap-6">
+    <div className="mt-10 sm:mt-0 font-[Helvetica] ">
+      <div className="text-center text-[64px] text-[#E87BF8] font-bold my-8">
+        Create Event
+      </div>
+      <div className=" md:grid md:grid-cols-[repeat(auto-fit,_30.666666%)] justify-center  md:gap-6">
         <div className="mt-5 md:col-span-2 md:mt-0">
           <form action="#" method="POST">
-            <div className="overflow-hidden shadow sm:rounded-md">
+            <div className="overflow-hidden drop-shadow-[0px_0px_46.869px_rgba(0,0,0,0.05)] bg-white sm:rounded-md ">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="event-name"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm text-[#240D57] font-bold"
                     >
                       Event Name
                     </label>
@@ -35,7 +38,7 @@ export const EventForm = () => {
                   <div class="col-span-6 sm:col-span-3">
                     <label
                       for="last-name"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm text-[#240D57] font-bold"
                     >
                       Host Name
                     </label>
@@ -50,7 +53,7 @@ export const EventForm = () => {
                   <div className="col-span-6 sm:col-span-2">
                     <label
                       for="country"
-                      class="block text-sm font-medium text-gray-700"
+                      class="block text-sm text-[#240D57] font-bold"
                     >
                       Location
                     </label>
@@ -69,7 +72,7 @@ export const EventForm = () => {
                   <div className="col-span-6 sm:col-span-2">
                     <label
                       for="floatingInput"
-                      className=" text-sm font-medium text-gray-700"
+                      className=" block text-sm text-[#240D57] font-bold"
                     >
                       Start Event
                     </label>
@@ -87,7 +90,7 @@ export const EventForm = () => {
                   <div className="col-span-6 sm:col-span-2">
                     <label
                       for="floatingInput"
-                      className=" text-sm font-medium text-gray-700"
+                      className=" block text-sm text-[#240D57] font-bold"
                     >
                       End Event
                     </label>
@@ -107,7 +110,7 @@ export const EventForm = () => {
                   </div>
                 </div>
                 <div className="col-span-6 ">
-                  <label class="block text-sm font-medium text-gray-700">
+                  <label class="block text-sm text-[#240D57] font-bold">
                     Cover photo
                   </label>
                   <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
@@ -141,19 +144,13 @@ export const EventForm = () => {
                         </label>
                         <p class="pl-1">or drag and drop</p>
                       </div>
-                      <p class="text-xs text-gray-500">
-                        PNG, JPG, GIF up to 10MB
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                <button
-                  type="submit"
-                  className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
+                <button className="px-[70px] py-2 text-white rounded-[10px] font-bold text-xl bg-gradient-to-r from-[#8456EC] to-[#E87BF8]">
                   Next
                 </button>
               </div>
