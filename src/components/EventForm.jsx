@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { countryList } from "../constants";
 
 export const EventForm = () => {
+  const navigate = useNavigate();
   const [event, setEvent] = useState({
     name: "",
     host: "",
-    location: "",
+    location: countryList[0],
     start: new Date().toISOString(),
     end: new Date().toISOString(),
     file: null,
   });
+
+  useEffect(() => {
+    localStorage.setItem("event", JSON.stringify(event));
+  }, [event]);
 
   const onChange = (event) => {
     setEvent((previous) => ({
@@ -153,6 +159,7 @@ export const EventForm = () => {
                             class="sr-only"
                             value={event.file || ""}
                             onChange={onChange}
+                            accept="image/png, image/jpeg"
                           />
                         </label>
                       </div>
@@ -162,7 +169,10 @@ export const EventForm = () => {
               </div>
 
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                <button className="px-[70px] py-2 text-white rounded-[10px] font-bold text-xl bg-gradient-to-r from-[#8456EC] to-[#E87BF8]">
+                <button
+                  onClick={() => navigate("/event")}
+                  className="px-[70px] py-2 text-white rounded-[10px] font-bold text-xl bg-gradient-to-r from-[#8456EC] to-[#E87BF8]"
+                >
                   Next
                 </button>
               </div>

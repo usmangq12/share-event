@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { Card } from "../components/Card";
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center lg:justify-between w-full flex-wrap-reverse lg:flex-nowrap">
       <div className="w-full inline-block lg:hidden text-center">
-        <button className=" px-[70px] py-4 text-white rounded-[10px] font-bold text-xl my-[52px] bg-gradient-to-r from-[#8456EC] to-[#E87BF8]">
+        <button
+          onClick={() => navigate("/create-event")}
+          className=" px-[70px] py-4 text-white rounded-[10px] font-bold text-xl my-[52px] bg-gradient-to-r from-[#8456EC] to-[#E87BF8]"
+        >
           🎉 Create my event
         </button>
       </div>
@@ -22,7 +27,10 @@ export const Home = () => {
           Easily host and share events with your friends across any social
           media.
         </p>
-        <button className="hidden lg:inline-block px-[70px] py-4 text-white rounded-[10px] font-bold text-xl mt-[52px] bg-gradient-to-r from-[#8456EC] to-[#E87BF8]">
+        <button
+          onClick={() => navigate("/create-event")}
+          className="hidden lg:inline-block px-[70px] py-4 text-white rounded-[10px] font-bold text-xl mt-[52px] bg-gradient-to-r from-[#8456EC] to-[#E87BF8]"
+        >
           🎉 Create my event
         </button>
       </div>
