@@ -29,9 +29,14 @@ export const EventForm = () => {
       <div className="text-center text-[64px] text-[#E87BF8] font-bold my-8">
         Create Event
       </div>
+
       <div className=" md:grid md:grid-cols-[repeat(auto-fit,_30.666666%)] justify-center  md:gap-6">
         <div className="mt-5 md:col-span-2 md:mt-0">
-          <form action="#" method="POST">
+          <form
+            onSubmit={() => {
+              navigate("/event");
+            }}
+          >
             <div className="overflow-hidden drop-shadow-[0px_0px_46.869px_rgba(0,0,0,0.05)] bg-white sm:rounded-md ">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
@@ -45,10 +50,12 @@ export const EventForm = () => {
                     <input
                       type="text"
                       name="name"
+                      required
                       id=" event-name"
                       autocomplete="given-name"
                       value={event.name}
                       onChange={onChange}
+                      minlength="3"
                       className="form-control  mt-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     />
                   </div>
@@ -61,6 +68,8 @@ export const EventForm = () => {
                     </label>
                     <input
                       type="text"
+                      required
+                      minlength="3"
                       name="host"
                       id="last-name"
                       value={event.host}
@@ -100,6 +109,7 @@ export const EventForm = () => {
                     <input
                       type="datetime-local"
                       name="start"
+                      required
                       value={event.start}
                       onChange={onChange}
                       class="form-control mt-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -118,6 +128,7 @@ export const EventForm = () => {
                       <input
                         type="datetime-local"
                         name="end"
+                        required
                         value={event.end}
                         onChange={onChange}
                         className="form-control mt-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -152,10 +163,12 @@ export const EventForm = () => {
                           class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                         >
                           <span>Upload a file</span>
+                          {event.file}
                           <input
                             id="file-upload"
-                            name="file-upload"
+                            name="file"
                             type="file"
+                            required
                             class="sr-only"
                             value={event.file || ""}
                             onChange={onChange}
@@ -170,7 +183,7 @@ export const EventForm = () => {
 
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                 <button
-                  onClick={() => navigate("/event")}
+                  type="submit"
                   className="px-[70px] py-2 text-white rounded-[10px] font-bold text-xl bg-gradient-to-r from-[#8456EC] to-[#E87BF8]"
                 >
                   Next
