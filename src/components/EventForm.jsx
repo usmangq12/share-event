@@ -159,14 +159,19 @@ export const EventForm = () => {
                       </svg>
                       <div class="flex text-sm text-gray-600">
                         <label
-                          for="file-upload"
+                          for="fileUpload"
                           class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                         >
                           <span>Upload a file</span>
                           {event.file}
                           <input
+<<<<<<< HEAD
                             id="file-upload"
                             name="file"
+=======
+                            id="fileUpload"
+                            name="fileUpload"
+>>>>>>> e72215518ba678615cf7780f6b6332aeb126cc02
                             type="file"
                             required
                             class="sr-only"
