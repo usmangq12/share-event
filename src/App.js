@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
+import { Routes } from "./Routes";
 import "./App.css";
 
 function App() {
   return (
     <div class="container mx-auto">
-      <h1>Hello</h1>
+      <Routes />
     </div>
   );
 }
