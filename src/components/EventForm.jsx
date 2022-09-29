@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { countryList } from "../constants";
 
 export const EventForm = () => {
-  const [startDateTime, setStartDateTime] = useState("2018-06-12T19:30");
-  const [endDateTime, setEndDateTime] = useState("2018-06-12T19:30");
+  const [event, setEvent] = useState({
+    name: "",
+    host: "",
+    location: "",
+    start: new Date().toISOString(),
+    end: new Date().toISOString(),
+    file: null,
+  });
 
-  const handleChange = (e) => {
-    if (!e.target["validity"].valid) return;
-    return e.target["value"] + ":00Z";
+  const onChange = (event) => {
+    setEvent((previous) => ({
+      ...previous,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   return (
@@ -26,9 +35,11 @@ export const EventForm = () => {
                     </label>
                     <input
                       type="text"
-                      name="event-eame"
+                      name="name"
                       id=" event-name"
                       autocomplete="given-name"
+                      value={event.name}
+                      onChange={onChange}
                       className="form-control  mt-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     />
                   </div>
@@ -41,8 +52,10 @@ export const EventForm = () => {
                     </label>
                     <input
                       type="text"
-                      name="last-name"
+                      name="host"
                       id="last-name"
+                      value={event.host}
+                      onChange={onChange}
                       autocomplete="family-name"
                       className="form-control mt-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     />
@@ -56,13 +69,15 @@ export const EventForm = () => {
                     </label>
                     <select
                       id="country"
-                      name="country"
+                      name="location"
                       autocomplete="country-name"
+                      value={event.location}
+                      onChange={onChange}
                       className=" block w-full mt-3 rounded-md border border-gray-300 bg-white py-2 px-3  focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     >
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
+                      {countryList.map((country) => (
+                        <option>{country}</option>
+                      ))}
                     </select>
                   </div>
 
@@ -75,11 +90,9 @@ export const EventForm = () => {
                     </label>
                     <input
                       type="datetime-local"
-                      value={(startDateTime || "").toString().substring(0, 16)}
-                      onChange={(e) => {
-                        const dt = handleChange(e);
-                        setStartDateTime(dt);
-                      }}
+                      name="start"
+                      value={event.start}
+                      onChange={onChange}
                       class="form-control mt-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       placeholder="Select a date"
                     />
@@ -95,11 +108,9 @@ export const EventForm = () => {
                     <div className="datepicker relative form-floating mb-3">
                       <input
                         type="datetime-local"
-                        value={(endDateTime || "").toString().substring(0, 16)}
-                        onChange={(e) => {
-                          const dt = handleChange(e);
-                          setEndDateTime(dt);
-                        }}
+                        name="end"
+                        value={event.end}
+                        onChange={onChange}
                         className="form-control mt-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         placeholder="Select a date"
                       />
@@ -137,9 +148,10 @@ export const EventForm = () => {
                             name="file-upload"
                             type="file"
                             class="sr-only"
+                            value={event.file || ""}
+                            onChange={onChange}
                           />
                         </label>
-                        <p class="pl-1">or drag and drop</p>
                       </div>
                       <p class="text-xs text-gray-500">
                         PNG, JPG, GIF up to 10MB
