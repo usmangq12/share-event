@@ -1,3 +1,3 @@
 export * from "./Home";
-export * from "./Event";
+export * from "./EventDetails";
 export * from "./CreateEvent";
