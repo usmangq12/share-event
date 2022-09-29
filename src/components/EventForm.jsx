@@ -165,13 +165,8 @@ export const EventForm = () => {
                           <span>Upload a file</span>
                           {event.file}
                           <input
-<<<<<<< HEAD
                             id="file-upload"
                             name="file"
-=======
-                            id="fileUpload"
-                            name="fileUpload"
->>>>>>> e72215518ba678615cf7780f6b6332aeb126cc02
                             type="file"
                             required
                             class="sr-only"
