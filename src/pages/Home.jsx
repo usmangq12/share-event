@@ -3,7 +3,7 @@ import { Card } from "../components/Card";
 export const Home = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-center lg:justify-between w-full flex-wrap-reverse lg:flex-nowrap">
+    <div className="flex items-center justify-center lg:justify-between w-full flex-wrap-reverse lg:flex-nowrap pt-14 sm:px-14">
       <div className="w-full inline-block lg:hidden text-center">
         <button
           onClick={() => navigate("/create-event")}

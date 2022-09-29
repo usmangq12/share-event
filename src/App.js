@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="max-w-[1512px] mx-auto h-screen pt-14 pb-6 px-5">
+    <div className="max-w-[1512px] mx-auto h-screen pb-6">
       <Routes />
     </div>
   );
