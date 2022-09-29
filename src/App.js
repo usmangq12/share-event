@@ -4,9 +4,8 @@ import { EventForm } from "./components/EventForm";
 
 function App() {
   return (
-    <div class="container mx-auto">
+    <div className="max-w-[1512px] mx-auto h-screen pt-14 pb-6 px-5">
       <Routes />
-      <EventForm />
     </div>
   );
 }
